@@ -1,0 +1,11 @@
+frontend:
+  build: frontend
+  ports:
+   - "8000:8000"
+  links:
+   - backend
+backend:
+  build: backend
+  expose:
+    - 8080
+# vim:ft=yaml sw=2 st=2 sts=2:
