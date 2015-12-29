@@ -8,6 +8,11 @@ prerequirement
 ==============
 
 - `Fedora 23 <https://getfedora.org/en/>`_
+- Install ``docker-engine``.
+
+  and Follow `Install Docker Compose`_ (external link).
+
+.. _`Install Docker Compose`: https://docs.docker.com/compose/install/
 
 frontend (Angular.js)
 =====================
@@ -15,7 +20,11 @@ frontend (Angular.js)
 getting started
 ---------------
 
-pass
+1. Run Docker-Compose
+
+   .. code-block:: console
+
+      $ docker-compose up -d frontend
 
 backend (Pyramid)
 =================
@@ -23,14 +32,8 @@ backend (Pyramid)
 getting started
 ---------------
 
-1. Install ``docker-engine``.
-
-   Follow `Install Docker Compose`_ (external link).
-
-   .. _`Install Docker Compose`: https://docs.docker.com/compose/install/
-
-2. Run Docker-Compose
+1. Run Docker-Compose
 
    .. code-block:: console
 
-      $ docker-compose up backend
+      $ docker-compose up -d backend
