@@ -5,7 +5,7 @@
   <dl/>
   <button ng-click="addItem(itemKey, itemValue)">add item</button>
 
-  <ul ng-repeat="item in items">
-    <li><a href="#top/some/{{ item.name }}">{{ item.name }}: {{ item.price | tohage }}</a></li>
+  <ul ng-repeat="product in products">
+    <li><a href="#top/some/{{ product.id }}">{{ product.name }}: {{ product.price | tohage }}</a></li>
   </ul>
 </div>
