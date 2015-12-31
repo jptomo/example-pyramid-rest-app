@@ -7,6 +7,7 @@ RUN ["dnf", "-y", "upgrade"]
 RUN ["mkdir", "/code"]
 COPY index.html /code/index.html
 COPY main.js /code/main.js
+COPY partial/ /code/partial/
 
 # run
 WORKDIR "/code/"
