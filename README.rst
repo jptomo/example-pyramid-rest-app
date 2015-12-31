@@ -4,7 +4,7 @@ example-pyramid-rest-app
 
 an example of Angular.js (front) and Pyramid (backend)
 
-prerequirement
+Prerequirement
 ==============
 
 - `Fedora 23 <https://getfedora.org/en/>`_
@@ -14,26 +14,16 @@ prerequirement
 
 .. _`Install Docker Compose`: https://docs.docker.com/compose/install/
 
-frontend (Angular.js)
-=====================
-
-getting started
----------------
+Getting Started
+===============
 
 1. Run Docker-Compose
 
    .. code-block:: console
 
-      $ docker-compose up -d frontend
+      $ docker-compose up -d
 
-backend (Pyramid)
-=================
+License
+=======
 
-getting started
----------------
-
-1. Run Docker-Compose
-
-   .. code-block:: console
-
-      $ docker-compose up -d backend
+see `LICENSE <./LICENSE>`__.
