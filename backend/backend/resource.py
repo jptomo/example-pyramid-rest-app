@@ -19,7 +19,10 @@ PRODUCTS = {
 prod_source = Service(
     name='data_source',
     path='/products',
-    description='some')
+    description='some',
+    cors_policy={
+        'enabled': True,
+        'origins': ('*',)})
 
 
 @prod_source.get()
