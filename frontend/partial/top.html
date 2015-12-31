@@ -1,11 +1,5 @@
 <div>
-  <dl>
-    <dt>key<dd><input type="text" ng-model="itemKey">
-    <dt>value<dd><input type="text" ng-model="itemValue">
-  <dl/>
-  <button ng-click="addItem(itemKey, itemValue)">add item</button>
-
   <ul ng-repeat="product in products">
-    <li><a href="#top/some/{{ product.id }}">{{ product.name }}: {{ product.price | tohage }}</a></li>
+    <li><a href="#top/some/{{ product.id }}">{{ product.name | deco }}: {{ product.price }}</a></li>
   </ul>
 </div>
