@@ -39,12 +39,11 @@
        .query_all()
        .$promise
        .then(function(data) {
-         var keys = Object.keys(data).sort();
          $scope.items = [];
-         for(var i = 0; i < keys.length; i++) {
+         for (var i = 0; i < data.length; i++) {
            $scope.items.push({
-             'name': data[keys[i]]['name'],
-             'price': data[keys[i]]['price']});
+             'name': data[i]['name'],
+             'price': data[i]['price']});
          }
        });
 
