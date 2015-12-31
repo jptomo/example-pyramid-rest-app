@@ -6,6 +6,6 @@
   <button ng-click="addItem(itemKey, itemValue)">add item</button>
 
   <ul ng-repeat="item in items">
-    <li><a href="#top/some/{{ item.id }}">{{ item.value | tohage }}</a></li>
+    <li><a href="#top/some/{{ item.name }}">{{ item.name }}: {{ item.price | tohage }}</a></li>
   </ul>
 </div>

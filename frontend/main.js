@@ -35,9 +35,21 @@
   ctls.controller('TopController', [
     '$scope', 'Products',
     function($scope, Products) {
-      $scope.items = Products.query_all();
+      Products
+       .query_all()
+       .$promise
+       .then(function(data) {
+         var keys = Object.keys(data).sort();
+         $scope.items = [];
+         for(var i = 0; i < keys.length; i++) {
+           $scope.items.push({
+             'name': data[keys[i]]['name'],
+             'price': data[keys[i]]['price']});
+         }
+       });
+
       $scope.addItem = function(itemKey, itemValue) {
-        $scope.items.push({'id': itemKey, 'value': itemValue});
+        $scope.items.push({'name': itemKey, 'price': itemValue});
       };
     }]);
 
@@ -59,16 +71,19 @@
 
   servs.factory('Products', [
     '$resource',
-    function($resource){
+    function($resource) {
       return $resource('http://localhost:8080/products', {}, {
         query_all: {
-          method:'GET',
+          method: 'GET',
+          isArray: true,
           transformResponse: function(data, headersGetter) {
-            var keys = Object.keys(data).sort(),
+            var json_data = angular.fromJson(data),
+                keys = Object.keys(json_data).sort(),
                 lst = [];
             for (var i = 0; i < keys.length; i++) {
-              lst.push(data[keys[i]]);
+              lst.push(json_data[keys[i]]);
             }
+            return lst;
           }}
       });
     }]);
