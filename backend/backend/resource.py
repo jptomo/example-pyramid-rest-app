@@ -37,7 +37,7 @@ def get_products(request):
 
 @prod_source.post()
 def set_products(request):
-    data = request.POST
+    data = request.json
     if all(x in data for x in ['id', 'name', 'price']):
         item_id = str(data['id'])
         PRODUCTS[item_id] = {'id': item_id, 'name': data['name'], 'price': int(data['price'])}
