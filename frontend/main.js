@@ -7,6 +7,7 @@
       servs = angular.module('servs', ['ngResource']),
       filters = angular.module('filters', []);
 
+  // define routes
   config.config([
     '$routeProvider',
     function($routeProvider) {
@@ -24,12 +25,14 @@
       });
     }]);
 
+  // define top view
   ctls.controller('TopController', [
     '$scope', 'Products',
     function($scope, Products) {
       $scope.products = Products.all();
     }]);
 
+  // define detail view
   ctls.controller('DetailController', [
     '$scope', '$location', '$routeParams', 'Products',
     function($scope, $location, $routeParams, Products) {
@@ -45,6 +48,7 @@
       };
     }]);
 
+  // define products REST Service
   var products_url = BACKEND_URL + '/products';
   servs.factory('Products', [
     '$resource',
@@ -69,6 +73,7 @@
       });
     }]);
 
+  // define filter
   filters.filter(
     'deco',
     function() {
