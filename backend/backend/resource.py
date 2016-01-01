@@ -39,7 +39,10 @@ def get_products(request):
     if 'id' in request.GET:
         return [PRODUCTS.get(str(request.GET['id']))]
     else:
-        return sorted(list(PRODUCTS.values()), key=lambda x: x['id'])
+        nondigits = [x for x in PRODUCTS.values() if not x['id'].isdigit()]
+        digits = [x for x in PRODUCTS.values() if x['id'].isdigit()]
+        return (sorted(nondigits, key=lambda x: x['id'])
+                + sorted(digits, key=lambda x: int(x['id'])))
 
 
 @prod_source.put()
